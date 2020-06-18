@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Json</title>
+    </head>
+    <body>
+        <script>
+            // var person = {
+            //     name:"Brad",
+            //     age : 35,
+            //     address : {
+            //         street : "5 main St",
+            //         city : "Boston"
+            //     },
+            //     children :["Sam","Dean"]
+            // };
+
+            // person = JSON.stringify(person);
+            // person = JSON.parse(person);
+            // console.log(person.address.city);
+            // console.log(person.children[0]);
+
+            // var people = [
+            //     {name : "Brad", age : 35},
+            //     {name : "Alice", age : 20},
+            //     {name : "Angela", age : 17}
+            // ]
+
+            // for (let i = 0 ; i < people.length;i++){
+            //     console.log(people[i].name);
+            // }
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    var res = JSON.parse(xhttp.responseText);
+                    // var people = res.people;
+                    console.log(res.people[0].name);
+                }
+            }
+            xhttp.open("GET","people.json",true);
+            xhttp.send();
+        </script>
+    </body>
+</html>
